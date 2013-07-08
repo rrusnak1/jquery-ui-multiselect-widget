@@ -14,7 +14,7 @@
  *
 */
 (function($){
-  var rEscape = /[\-\[\]{}()*+?.,\\\^$|#\s]/g;
+	var rEscape = /[\-\[\]{}()*+?.,\\\^$|#\s]/g;
 	
 	$.widget("ech.multiselectfilter", {
 		
@@ -49,22 +49,23 @@
 						e.preventDefault();
 					}
 					
-					//custom code -- override tab
+					//custom code -- override tab --robert
 					if( e.which === 9 ){						
 						instance.close();
 						e.preventDefault();
 					}
 					
-					//custom code -- set down/right arrows to move through selections like normal
+					//custom code -- set down/right arrows to move through selections like normal --robert
 					if( e.which === 39 || e.which === 40 ){
 						instance.menu.find('input[type="checkbox"]:visible, input[type="radio"]:visible')[0].focus();
 						instance.menu.find('label:visible').first().trigger('mouseover');
 						e.preventDefault();
 					}
 					
-					//custom code -- set up/left arrows to move through selections like normal
+					//custom code -- set up/left arrows to move through selections like normal --robert
 					if ( e.which === 37 || e.which === 38){
-						instance.menu.find('input[type="checkbox"]:visible, input[type="radio"]:visible')[inputs.length -1].focus();
+						var inputs = instance.menu.find('input[type="checkbox"]:visible, input[type="radio"]:visible');
+						inputs[inputs.length -1].focus();
 						instance.menu.find('label:visible').last().trigger('mouseover');
 						e.preventDefault();
 					}
